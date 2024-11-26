@@ -1,0 +1,176 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "declaration": true,
+    "removeComments": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "target": "es2017",
+    "sourceMap": true,
+    "outDir": "./dist",
+    "baseUrl": "./",
+    "incremental": true,
+    "skipLibCheck": true,
+    "strictNullChecks": false,
+    "noImplicitAny": false,
+    "strictBindCallApply": false,
+    "forceConsistentCasingInFileNames": false,
+    "noFallthroughCasesInSwitch": false,
+    "paths": {
+      "@config/config": [
+        "config/configuration"
+      ],
+      "@builder/builders": [
+        "libs/builders/src"
+      ],
+      "@builder/builders/*": [
+        "libs/builders/src/*"
+      ],
+      "@common/common": [
+        "libs/common/src"
+      ],
+      "@common/common/*": [
+        "libs/common/src/*"
+      ],
+      "@traffic/traffic": [
+        "libs/traffic/src"
+      ],
+      "@traffic/traffic/*": [
+        "libs/traffic/src/*"
+      ],
+      "@user/user": [
+        "libs/user/src"
+      ],
+      "@user/user/*": [
+        "libs/user/src/*"
+      ],
+      "@status/status": [
+        "libs/status/src"
+      ],
+      "@status/status/*": [
+        "libs/status/src/*"
+      ],
+      "@role/role": [
+        "libs/role/src"
+      ],
+      "@role/role/*": [
+        "libs/role/src/*"
+      ],
+      "@psp/psp": [
+        "libs/psp/src"
+      ],
+      "@psp/psp/*": [
+        "libs/psp/src/*"
+      ],
+      "@person/person": [
+        "libs/person/src"
+      ],
+      "@person/person/*": [
+        "libs/person/src/*"
+      ],
+      "@permission/permission": [
+        "libs/permission/src"
+      ],
+      "@permission/permission/*": [
+        "libs/permission/src/*"
+      ],
+      "@message/message": [
+        "libs/message/src"
+      ],
+      "@message/message/*": [
+        "libs/message/src/*"
+      ],
+      "@psp-account/psp-account": [
+        "libs/psp-account/src"
+      ],
+      "@psp-account/psp-account/*": [
+        "libs/psp-account/src/*"
+      ],
+      "@lead/lead": [
+        "libs/lead/src"
+      ],
+      "@lead/lead/*": [
+        "libs/lead/src/*"
+      ],
+      "@ip-address/ip-address": [
+        "libs/ip-address/src"
+      ],
+      "@ip-address/ip-address/*": [
+        "libs/ip-address/src/*"
+      ],
+      "@group/group": [
+        "libs/group/src"
+      ],
+      "@group/group/*": [
+        "libs/group/src/*"
+      ],
+      "@file/file": [
+        "libs/file/src"
+      ],
+      "@file/file/*": [
+        "libs/file/src/*"
+      ],
+      "@crm/crm": [
+        "libs/crm/src"
+      ],
+      "@crm/crm/*": [
+        "libs/crm/src/*"
+      ],
+      "@category/category": [
+        "libs/category/src"
+      ],
+      "@category/category/*": [
+        "libs/category/src/*"
+      ],
+      "@business-unit/business-unit": [
+        "libs/business-unit/src"
+      ],
+      "@business-unit/business-unit/*": [
+        "libs/business-unit/src/*"
+      ],
+      "@affiliate/affiliate": [
+        "libs/affiliate/src"
+      ],
+      "@affiliate/affiliate/*": [
+        "libs/affiliate/src/*"
+      ],
+      "@activity/activity": [
+        "libs/activity/src"
+      ],
+      "@activity/activity/*": [
+        "libs/activity/src/*"
+      ],
+      "@transfer/transfer": [
+        "libs/transfer/src"
+      ],
+      "@transfer/transfer/*": [
+        "libs/transfer/src/*"
+      ],
+      "@response-affico/response-affico": [
+        "libs/response-affico/src"
+      ],
+      "@response-affico/response-affico/*": [
+        "libs/response-affico/src/*"
+      ],
+      "@auth/auth": [
+        "libs/auth/src"
+      ],
+      "@auth/auth/*": [
+        "libs/auth/src/*"
+      ],
+      "@integration/integration": [
+        "libs/integration/src"
+      ],
+      "@integration/integration/*": [
+        "libs/integration/src/*"
+      ],
+      "@stats/stats": [
+        "libs/stats/src"
+      ],
+      "@stats/stats/*": [
+        "libs/stats/src/*"
+      ]
+    }
+  }
+}

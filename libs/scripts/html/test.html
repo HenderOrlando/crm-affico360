@@ -1,0 +1,71 @@
+<html>
+  <header>
+    <script type="text/javascript">
+      const id = '64485c8a04a7deeaa753f035';
+      const protocol = 'http://';
+      //const host = 'dev.affico360.com';
+      const host = 'api.socialpushh.com';
+      const port = 80;
+      const headers = {
+        'WEBPAGES-BUILDER-API-KEY': '$2b$10$6EhC6Wsk6LUCNz5g.sUzTeDCgh9.W1/8/ieRD19sMx9wyGwwPIiKS'
+      };
+      const authorization =
+        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1MDlkMGQ2YzIxYzM5NDhmMDQ0ZmJlZiIsImVtYWlsIjoiaGVuZGVyQGdydXBvZWRiLmNvbSIsImZpcnN0TmFtZSI6ImhlbmRlciIsInR3b0ZhY3RvcklzQWN0aXZlIjp0cnVlLCJwZXJtaXNzaW9ucyI6W10sImlhdCI6MTY5NzU3MTc2OSwiZXhwIjoxNjk3NjAwNTY5fQ.pJ_E30Q4Se6mPR3agQ7esxfDelrQ42mnrx1qvqJAMrY';
+
+      requestHttp('PLANS', 'GET', `plan`, false);
+      /* requestHttp('LOGIN', 'POST', `auth/login`, false, {
+        password: '123Abc',
+        email: 'hender@grupoedb.com',
+        code: '059056',
+      }); */
+
+      function requestHttp(msg, method, path, auth, data = {}) {
+        if (typeof auth !== 'boolean') {
+          data = auth;
+          auth = true;
+        }
+        headersRequest = headers ?? {};
+        msg = `${method} ${msg}`;
+        const opts = {
+          protocol: protocol,
+          host: host,
+          method: method,
+          port: port ?? 80,
+          path: path,
+          headers: {
+            ...headersRequest,
+            //Authorization: authorization,
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+          },
+        };
+        if (auth) {
+          opts.headers.Authorization = authorization;
+        }
+        if (method === 'PATCH' || method === 'PUT' || method === 'POST') {
+          opts.data = data;
+        }
+        console.log(`=========== START ${msg} \n
+        ${JSON.stringify(opts)}\n
+        ${opts.protocol}${opts.host}:${opts.port}/${opts.path}\n
+        `);
+        return fetch(`${opts.protocol}${opts.host}:${opts.port}/${opts.path}`, {
+          method: opts.method,
+          body: JSON.stringify(opts.data),
+          headers: opts.headers,
+        })
+          .then((res) => {
+            console.log(`=========== STATUS CODE ${msg} ${res.status}\n`);
+            return res.json();
+          })
+          .then((data) =>
+            console.log(`=========== END ${msg} \n${JSON.stringify(data)}\n`),
+          )
+          .catch((err) => console.log(`=========== ERROR ${msg} \n${err}\n`));
+      }
+    </script>
+  </header>
+  <body>
+    Loaded
+  </body>
+</html>

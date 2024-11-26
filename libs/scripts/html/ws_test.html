@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Test WebSocket</title>
+  </head>
+
+  <body>
+    <h2>Status: <span id="status">Disconnected</span></h2>
+    <h2>Messages:</h2>
+    <ul id="messages"></ul>
+
+    <script src="https://cdn.socket.io/4.6.0/socket.io.min.js" integrity="sha384-c79GN5VsunZvi+Q/WObgk2in0CbZsHnjEqvFxC5DxHn9lTfNce2WW6h2pH6u/kF+" crossorigin="anonymous"></script>
+    <script>
+      const status = document.getElementById('status');
+      const messages = document.getElementById('messages');
+
+      const appendMessage = (content) => {
+        const item = document.createElement('li');
+        item.textContent = content;
+        messages.appendChild(item);
+      };
+
+      const url = 'http://dev.affico360.com:3100/LEAD';
+      const socket = io(url, {
+        transports: ['websocket']
+      });
+
+      socket.on('connect', () => {
+        status.innerText = 'Connected';
+        appendMessage(`event: connect | session id: ${socket.id}`);
+      });
+
+      socket.on('connect_error', (err) => {
+        appendMessage(`event: connect_error | reason: ${err.message}`);
+      });
+
+      socket.on('disconnect', (reason) => {
+        status.innerText = 'Disconnected';
+        appendMessage(`event: disconnect | reason: ${reason}`);
+      });
+
+
+      const query = {
+        where: {}
+      };
+      const evt = 'LEAD.DOWNLOAD';
+      socket.on(evt, (data) => {
+        console.log(data)
+        if(data.totalElements){
+          appendMessage(`event: ${data} | Total Elements: ${data.totalElements}`);
+        } else if (data.item){
+          appendMessage(`event: ${data} | Progress: ${data.progress * 100}%`);
+        } else {
+          appendMessage(`event: ${data} | Progress: ${data.filename}`);
+          if(data.fileBase64){
+            downloadBase64CSV(data.filename, data.fileBase64);
+          }
+        }
+      });
+      socket.emit(evt, query, (response) => {
+        appendMessage(`event: ${evt} | arguments: ${query} | response: ${response}`);
+      })
+
+      function downloadBase64CSV(nameFile, base64CSV) {
+        let csvContent = atob(base64CSV);
+        var blob = new Blob([csvContent], {type: "data:application/octet-stream;base64"});
+        var url  = window.URL.createObjectURL(blob);
+        var dlnk = window.document.createElement("a");
+        dlnk.download = nameFile;
+        dlnk.href = url;
+        document.body.appendChild(dlnk);
+        dlnk.click();
+        document.body.removeChild(dlnk);
+      }
+    </script>
+  </body>
+</html>

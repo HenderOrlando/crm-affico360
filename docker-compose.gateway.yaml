@@ -1,0 +1,322 @@
+version: '3.8'
+services:
+  activity-gateway:
+    image: activity-gateway
+    build:
+      context: .
+      dockerfile: ./apps/activity-service/dockerfile
+      target: dev
+    #command: node /usr/src/app/dist/apps/activity-service/main.gateway.js
+    command: npm run start-gateway-activity:debug
+    env_file:
+      - .env
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    restart: on-failure
+    ports:
+      - "3001:3001"
+  affiliate-gateway:
+    image: affiliate-gateway
+    build:
+      context: .
+      dockerfile: ./apps/affiliate-service/dockerfile
+      target: dev
+    #command: node /usr/src/app/dist/apps/affiliate-service/main.gateway.js
+    command: npm run start-gateway-affiliate:debug
+    env_file:
+      - .env
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    restart: on-failure
+    ports:
+      - "3002:3002"
+  business-unit-gateway:
+    image: business-unit-gateway
+    build:
+      context: .
+      dockerfile: ./apps/business-unit-service/dockerfile
+      target: dev
+    #command: node /usr/src/app/dist/apps/business-unit-service/main.gateway.js
+    command: npm run start-gateway-business-unit:debug
+    env_file:
+      - .env
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    restart: on-failure
+    ports:
+      - "3003:3003"
+  category-gateway:
+    image: category-gateway
+    build:
+      context: .
+      dockerfile: ./apps/category-service/dockerfile
+      target: dev
+    #command: node /usr/src/app/dist/apps/category-service/main.gateway.js
+    command: npm run start-gateway-category:debug
+    env_file:
+      - .env
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    restart: on-failure
+    ports:
+      - "3004:3004"
+  # communication-gateway:
+  #   image: communication-gateway
+  #   build:
+  #     context: .
+  #     dockerfile: ./apps/communication-service/dockerfile
+  #     target: dev
+  #   #command: node /usr/src/app/dist/apps/communication-service/main.gateway.js
+  #   command: npm run start-gateway-communication:debug
+  #   env_file:
+  #     - .env
+  #   volumes:
+  #     - .:/usr/src/app
+  #     - /usr/src/app/node_modules
+  #   restart: on-failure
+  #   ports:
+  #     - "3005:3005"
+  crm-gateway:
+    image: crm-gateway
+    build:
+      context: .
+      dockerfile: ./apps/crm-service/dockerfile
+      target: dev
+    #command: node /usr/src/app/dist/apps/crm-service/main.gateway.js
+    command: npm run start-gateway-crm:debug
+    env_file:
+      - .env
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    restart: on-failure
+    ports:
+      - "3006:3006"
+  file-gateway:
+    image: file-gateway
+    build:
+      context: .
+      dockerfile: ./apps/file-service/dockerfile
+      target: dev
+    #command: node /usr/src/app/dist/apps/file-service/main.gateway.js
+    command: npm run start-gateway-file:debug
+    env_file:
+      - .env
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    restart: on-failure
+    ports:
+      - "3007:3007"
+  group-gateway:
+    image: group-gateway
+    build:
+      context: .
+      dockerfile: ./apps/group-service/dockerfile
+      target: dev
+    #command: node /usr/src/app/dist/apps/group-service/main.gateway.js
+    command: npm run start-gateway-group:debug
+    env_file:
+      - .env
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    restart: on-failure
+    ports:
+      - "3008:3008"
+  ip-address-gateway:
+    image: ip-address-gateway
+    build:
+      context: .
+      dockerfile: ./apps/ip-address-service/dockerfile
+      target: dev
+    #command: node /usr/src/app/dist/apps/ip-address-service/main.gateway.js
+    command: npm run start-gateway-ip-address:debug
+    env_file:
+      - .env
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    restart: on-failure
+    ports:
+      - "3009:3009"
+  lead-gateway:
+    image: lead-gateway
+    build:
+      context: .
+      dockerfile: ./apps/lead-service/dockerfile
+      target: dev
+    #command: node /usr/src/app/dist/apps/lead-service/main.gateway.js
+    command: npm run start-gateway-lead:debug
+    env_file:
+      - .env
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    restart: on-failure
+    ports:
+      - "30010:30010"
+  message-gateway:
+    image: message-gateway
+    build:
+      context: .
+      dockerfile: ./apps/message-service/dockerfile
+      target: dev
+    #command: node /usr/src/app/dist/apps/message-service/main.gateway.js
+    command: npm run start-gateway-message:debug
+    env_file:
+      - .env
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    restart: on-failure
+    ports:
+      - "3011:3011"
+  permission-gateway:
+    image: permission-gateway
+    build:
+      context: .
+      dockerfile: ./apps/permission-service/dockerfile
+      target: dev
+    #command: node /usr/src/app/dist/apps/permission-service/main.gateway.js
+    command: npm run start-gateway-permission:debug
+    env_file:
+      - .env
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    restart: on-failure
+    ports:
+      - "3012:3012"
+  person-gateway:
+    image: person-gateway
+    build:
+      context: .
+      dockerfile: ./apps/person-service/dockerfile
+      target: dev
+    #command: node /usr/src/app/dist/apps/person-service/main.gateway.js
+    command: npm run start-gateway-person:debug
+    env_file:
+      - .env
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    restart: on-failure
+    ports:
+      - "3013:3013"
+  psp-gateway:
+    image: psp-gateway
+    build:
+      context: .
+      dockerfile: ./apps/psp-service/dockerfile
+      target: dev
+    #command: node /usr/src/app/dist/apps/psp-service/main.gateway.js
+    command: npm run start-gateway-psp:debug
+    env_file:
+      - .env
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    restart: on-failure
+    ports:
+      - "3014:3014"
+  role-gateway:
+    image: role-gateway
+    build:
+      context: .
+      dockerfile: ./apps/role-service/dockerfile
+      target: dev
+    #command: node /usr/src/app/dist/apps/role-service/main.gateway.js
+    command: npm run start-gateway-role:debug
+    env_file:
+      - .env
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    restart: on-failure
+    ports:
+      - "3015:3015"
+  stats-gateway:
+    image: stats-gateway
+    build:
+      context: .
+      dockerfile: ./apps/stats-service/dockerfile
+      target: dev
+    #command: node /usr/src/app/dist/apps/stats-service/main.gateway.js
+    command: npm run start-gateway-stats:debug
+    env_file:
+      - .env
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    restart: on-failure
+    ports:
+      - "3016:3016"
+  status-gateway:
+    image: status-gateway
+    build:
+      context: .
+      dockerfile: ./apps/status-service/dockerfile
+      target: dev
+    #command: node /usr/src/app/dist/apps/status-service/main.gateway.js
+    command: npm run start-gateway-status:debug
+    env_file:
+      - .env
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    restart: on-failure
+    ports:
+      - "3017:3017"
+  traffic-gateway:
+    image: traffic-gateway
+    build:
+      context: .
+      dockerfile: ./apps/traffic-service/dockerfile
+      target: dev
+    #command: node /usr/src/app/dist/apps/traffic-service/main.gateway.js
+    command: npm run start-gateway-traffic:debug
+    env_file:
+      - .env
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    restart: on-failure
+    ports:
+      - "3018:3018"
+  transfer-gateway:
+    image: transfer-gateway
+    build:
+      context: .
+      dockerfile: ./apps/transfer-service/dockerfile
+      target: dev
+    #command: node /usr/src/app/dist/apps/transfer-service/main.gateway.js
+    command: npm run start-gateway-transfer:debug
+    env_file:
+      - .env
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    restart: on-failure
+    ports:
+      - "3019:3019"
+  user-gateway:
+    image: user-gateway
+    build:
+      context: .
+      dockerfile: ./apps/user-service/dockerfile
+      target: dev
+    #command: node /usr/src/app/dist/apps/user-service/main.gateway.js
+    command: npm run start-gateway-user:debug
+    env_file:
+      - .env
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    restart: on-failure
+    ports:
+      - "3020:3020"
